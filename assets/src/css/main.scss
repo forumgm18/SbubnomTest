@@ -1,0 +1,11 @@
+// Переопределение дефолтных значений переменных Bootstrap 4 и определение своих
+@import "variables";
+@import "media-queries";
+
+// Подключаем Normalize.css
+// @ import "../../../node_modules/normalize.css/normalize.css";
+
+// Подключение своих SCSS файлов
+// @import "jquery.countdown.scss";
+@import "fonts";
+@import "my";

@@ -1,0 +1,59 @@
+// Ширина экрана
+$x1024: 1024px;
+$x1200: 1200px;
+$x1366: 1366px;
+$x1440: 1440px;
+
+// Ширина контейнера
+$containerMaxW: (
+	x1024: 1000px,
+	x1200: 1180px,
+	x1366: 1340px,
+	x1440: 1400px
+);
+
+//Переменные
+$fontColor: #666;
+$fontColor2: #b1b1b1;
+$fontColor3: #333;
+$orange:#dd7300;
+$selectColor:#c17c19;
+$sliderDotBgr: #ed7c00;
+$gray: #787777;
+$darkGray: #636262;
+$lightGray: #b1b1b1;
+$lightGray2: #999;
+$white:  #fff;
+$borderGray: #ebeaea;
+//Шрифт
+$ffFont: HelveticaNeueCyr, Arial, sans-serif;
+
+//Костыль для извлечения ширины контейнера
+@function maW($key) {
+  @if map-has-key($containerMaxW, $key) {
+    @return map-get($containerMaxW, $key);
+  }
+ 
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}
+
+//Миксин для display: flex;
+@mixin dFlex($js,$ai,$fd,$fw) {
+	display: flex;
+	justify-content: $js;
+	align-items: $ai;
+	flex-direction: $fd;
+	flex-wrap: $fw;
+}
+
+//Миксин для Шрифта
+@mixin setFont ($ff,$fs,$fw,$fz,$fc) {
+	font-family: $ff;
+	font-style: $fs;
+	font-weight: $fw;
+	font-size: $fz;
+	color: $fc;
+}
+// Тень
+@mixin boxShadow (){	box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1);}	

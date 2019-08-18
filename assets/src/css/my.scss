@@ -1,0 +1,451 @@
+* {box-sizing: border-box;}
+body {
+	margin: 0;
+	padding: 0;		
+} 
+
+a {
+	color: $fontColor;
+	text-decoration: none;
+	&:hover, &:focus, &:active {
+		outline: none;
+		box-shadow: none;
+	}
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}	
+
+.container {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	box-shadow: 0px 0 20px 15px rgba(0,0,0,0.18);
+		@include min-screen($x1200) {	max-width: maW(x1200);}
+		@include min-screen($x1366) {	max-width: maW(x1366);}
+		@include min-screen($x1440) {	max-width: maW(x1440);}
+}
+
+.menu {
+	@include dFlex(flex-start,center,row,nowrap);
+	border-bottom: 1px solid $borderGray;
+	padding-left: 21px;
+		@include min-screen($x1200) {	padding-left: 43px;}
+}
+
+.menu_item {
+	@include setFont ($ffFont,normal,300,14px,$fontColor);
+	@include dFlex(flex-start,center,row,nowrap);
+	height: 37px;
+	padding-right: 22px;
+	a {
+		white-space: pre;
+		&:hover {color:$orange;}
+	}
+
+	&:nth-child(2){padding-right: 24px;}
+	&:nth-child(4){
+		margin-left: auto;
+		padding-right: 20px;
+		position: relative;
+		letter-spacing: 0.15px;
+			@include min-screen($x1200) {	padding-right: 55px;}
+				img {
+					position: absolute;
+		    	bottom: 8px;
+		    	left: 45px;
+				}
+	}
+	&:nth-child(5){
+		padding-right: 10px;
+		padding-top: 1px;
+			@include min-screen($x1200) {	padding-right: 20px;}
+
+				a {
+					display: block;
+		    	border-bottom: 1px solid $fontColor;
+					&:hover {border-bottom-color:$orange;}
+				}
+	}
+
+	&:last-child{
+		background: url(../img/siginbgr.png) no-repeat center left;
+		width: 180px;
+		justify-content: flex-end;
+		padding-right: 18px;
+		font-weight: bold;
+			@include min-screen($x1200) {	width: 210px;padding-right: 36px;}
+
+		a {
+			display: block;
+			color: $white;
+			border-bottom: 2px dotted #fff;
+			margin-top: 2px;
+			letter-spacing: 0.15px;
+			
+			&:hover {border-bottom-color:  transparent;}
+			
+		}
+	}
+}
+
+.sel_city {
+  appearance: none !important;
+	@include setFont ($ffFont,normal,bold,14px,$sliderDotBgr);
+	box-shadow: none;
+	border: none;
+  padding: 4px;
+  width: 76px;
+  background: url(../img/arrow-dowm-orange.png) no-repeat 98% 50%;
+  cursor: pointer;
+	&:hover, &:active, &:focus {
+		outline: none;
+		box-shadow: none;
+	}
+
+  option {	
+  	@include setFont ($ffFont,normal,300,14px,$fontColor); 
+  	filter: hue-rotate(125deg);
+  	padding: 0 15px;
+  }
+}
+
+.logo {
+	@include dFlex(space-between,center,row,nowrap);
+	height: 151px;
+  padding: 13px 36px 0 43px;
+	a {
+		margin-top: 13px;
+		&:first-child {margin-top: 0;}
+		&:nth-child(2) {margin-left: auto;margin-right: 32px;padding-top: 2px;}
+		&:nth-child(3) {margin-right: 29px;padding-top: 2px;}
+	}
+}
+
+.breadcrumb {
+	position: relative;
+	@include dFlex(space-between,center,row,nowrap);
+	margin: 0 -10px;
+	padding: 0;
+	padding-left: 20px;
+	height: 51px;
+	background: $gray;
+	box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.149);
+		@include min-screen($x1200) {	padding-left: 24px;}
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				left: 0px;
+				top: -10px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 0 10px 10px;
+				border-color: transparent transparent $fontColor transparent;
+			}
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				right: 0px;
+				top: -10px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 10px 0 0 10px;
+				border-color: transparent transparent transparent $fontColor;
+			}
+			ul {
+				@include dFlex(space-between,center,row,nowrap);
+		    height: 100%;
+			}
+}
+
+.breadcrumb_item {
+	@include dFlex(space-between,center,row,nowrap);
+	height: 100%;
+	width: 230px;
+	padding-left: 10px;
+	padding-right: 10px;		
+	border-right: 2px solid $lightGray2;
+			@include min-screen($x1200) {	padding-left: 29px; padding-right: 19px;}
+	
+	&:after {	content: url(../img/arrow-right.png);	}
+	&:nth-child(1) {
+			@include min-screen($x1200) {	width: 250px;}
+			@include min-screen($x1366) {	width: 280px;}
+			@include min-screen($x1440) {	width: 288px;}
+	}
+	&:nth-child(2) {
+		width: 185px;	
+			@include min-screen($x1200) {	width: 215px;}
+			@include min-screen($x1366) {	width: 275px;}
+			@include min-screen($x1440) {	width: 300px;}
+	}
+	&:nth-child(3) {
+		width: 215px;	
+			@include min-screen($x1200) {	width: 245px;}
+			@include min-screen($x1366) {	width: 285px;}
+			@include min-screen($x1440) {	width: 300px;}
+	}
+	&:nth-child(4) {
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 200px;
+			@include min-screen($x1200) {	padding-left: 30px; padding-right: 21px;width: 245px;}
+			@include min-screen($x1366) {	width: 285px;}
+			@include min-screen($x1440) {	width: 291px;}
+	}
+	a {
+		@include setFont ($ffFont,normal,500,12px,$white);
+		text-transform: uppercase;
+		line-height: 1.333;
+    letter-spacing: 0.149px;
+    width: 100%;
+	}
+	&.active:after {	
+		content: url(../img/arrow-down.png);	    
+		margin-right: -1px;
+    margin-top: -2px;
+  }
+  &:hover{background-color: darken($gray,5%);}
+}
+
+.search_block {
+	@include dFlex(space-between,center,row,nowrap);
+	background: $darkGray;
+	height: 100%;
+	overflow: hidden;
+  padding-right: 27px;
+	flex-grow: 1;
+			@include min-screen($x1200) {	padding-right: 47px;}
+
+	.search {
+		background: $orange;
+		background-image: url(../img/search.png);
+		background-size: 17px 20px;
+		background-repeat: no-repeat;
+		background-position: center;
+		box-shadow: 0px 0px 7px 3px rgba(0,0,0,0.19);
+		min-width: 38px;
+		width: 38px;
+		height: 100%;
+		&:hover {background-color: darken($orange,5%);}
+	}
+}
+
+.letter {
+	@include dFlex(space-between,center,row,nowrap);
+	padding: 0 18px;
+	flex-grow: 1;
+			@include min-screen($x1200) {	padding: 0 28px;}
+}
+
+.circle_big {
+	@include dFlex(center,center,row,nowrap);
+	@include setFont ($ffFont,normal,bold,11px,$fontColor3);
+	text-transform: uppercase;
+	padding-bottom: 1px;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: $lightGray;
+}
+
+.circle_mini {
+	@include dFlex(center,center,row,nowrap);
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: $lightGray;
+}
+
+.slider_content {	padding-bottom: 50px;}
+
+.slider {
+	width: 100%;
+	height: 450px;
+	margin-top: 39px;
+  padding-left: 21px;  
+  padding-right: 17px;
+			@include min-screen($x1200) {	padding-left: 41px;  padding-right: 37px;}
+}
+  
+.slider-item {
+	@include dFlex(space-between,flex-start,row,nowrap);
+	background: url(../img/slide.png) no-repeat center;
+	width: 100%;
+	height: 100%;
+	padding-left: 35px;
+	padding-top: 104px;
+	display: none;
+  animation-name: fade;
+  animation-duration: 1.5s;
+		@include min-screen($x1200) {	padding-left: 45px;}
+		@include min-screen($x1366) {	padding-left: 59px;}
+			&.active{display: flex;}
+
+			.slide_left_text {
+				@include setFont ($ffFont,normal,300,30px,$fontColor);
+					@include min-screen($x1200) {	font-size: 40px;}
+						&:last-child{margin-left: 10px;}
+			}
+			.slide_prod_name { 
+				@include setFont ($ffFont,normal,bold,60px,$fontColor3);
+				letter-spacing: -1px;
+		    margin-top: 0px;
+		    margin-left: 2px;
+					@include min-screen($x1200) {	font-size: 70px;}
+					@include min-screen($x1366) {	font-size: 80px;}
+			}
+			>div {
+				&:nth-child(1) {
+					@include dFlex(space-between,flex-start,column,nowrap);
+					height: 188px;
+					  letter-spacing: 0.3px;
+					  margin-top: 19px;
+				}
+				&:nth-child(2) {
+					max-width: 360px;
+					height: 240px;
+					padding-right: 35px;
+						@include min-screen($x1200) {	padding-right: 45px;max-width: 400px;}
+						@include min-screen($x1366) {	padding-right: 80px;max-width: 429px;}
+
+					>div {
+						@include setFont ($ffFont,normal,300,22px,$white);
+						line-height: 34px;
+						margin-bottom: 18px;
+							@include min-screen($x1366) {	font-size: 24px;}
+								span { @include setFont ($ffFont,normal,400,24px,$white);}
+					}
+				}
+			}
+}
+
+@-webkit-keyframes fade {
+    from { opacity: .4 }
+    to   { opacity: 1  }
+}
+
+@keyframes fade {
+    from { opacity: .4 }
+    to 	 { opacity: 1  }
+}
+
+.slider_video_link {
+	@include setFont ($ffFont,normal,300,14px,$white);
+	border-bottom: 1px dotted $white;
+	letter-spacing: 0.1px;
+		&:hover {border-bottom-color: transparent;}
+}
+
+.slider_link {
+	@include dFlex(center,center,row,nowrap);
+	@include setFont ($ffFont,normal,700,14px,$orange);
+	text-transform: uppercase;
+	position: relative;
+	display: block;
+  width: 237px;
+  height: 35px;
+  z-index: 0;
+  margin-top: 42px;
+  margin-left: 10px;
+	line-height: 36px;
+  text-align: center;
+		&:hover {color:$white;}
+		&:before {
+		    content: '';
+		    position: absolute;
+		    width: 100%;
+		    height: 100%;
+		    display: block;
+		    background: $white;
+			  box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.18);
+		    transform: skewX(-30deg);
+		    z-index: -1;
+		  }
+		&:hover:before {background-color: darken($orange,10%);}
+}
+
+.slider_control {
+	@include dFlex(space-between,center,row,nowrap);
+	height: 40px;
+  padding-left: 21px;
+  padding-right: 17px;
+			@include min-screen($x1200) {	padding-left: 41px;  padding-right: 37px;}
+}
+
+.dots {
+	@include dFlex(flex-start,center,row,nowrap);
+	@include boxShadow ();
+	flex-grow: 1;
+	height: 100%;
+		.slider_dots_item {
+			@include dFlex(flex-start,center,row,nowrap);
+			@include setFont ($ffFont,normal,700,12px,$fontColor);
+			text-transform: uppercase;
+			cursor: pointer;
+			height: 100%;
+			padding-left: 31px;
+			&:nth-child(1){
+				width: 180px;
+				padding-left: 22px;
+					@include min-screen($x1200) {	width: 220px;}
+					@include min-screen($x1366) {	width: 250px;}
+					@include min-screen($x1440) {	width: 259px;}
+
+			}
+			&:nth-child(2){
+				width: 180px;
+					@include min-screen($x1200) {	width: 220px;}
+					@include min-screen($x1366) {	width: 270px;}
+					@include min-screen($x1440) {	width: 299px;}
+			}
+			&:nth-child(3){
+				width: 180px;
+					@include min-screen($x1200) {	width: 220px;}
+					@include min-screen($x1366) {	width: 270px;}
+					@include min-screen($x1440) {	width: 301px;}
+			}
+			&:nth-child(4){	flex-grow: 1;	}
+
+			&:hover {	background-color: darken($orange,5%);	color:$white;}
+				&.active {background: $orange;color:$white;}
+			}
+}	
+
+.slider_arrows {
+	@include dFlex(space-between,center,row,nowrap);
+	@include boxShadow ();
+	width: 170px;
+	height: 100%;
+	background: $gray;
+		.slider_info {
+			background: $darkGray;
+			@include setFont ($ffFont,normal,700,16px,$white);
+			@include dFlex(center,center,row,nowrap);
+			border-right: 2px solid $lightGray2;
+			border-left: 2px solid $lightGray2;
+			flex-grow: 1;
+			height: 100%;
+		}
+		.prev {
+			background: url(../img/arrow-left.png) no-repeat 8px 13px;
+			width: 28px;
+			height: 100%;
+			cursor: pointer;
+			&:hover {	background-color: darken($gray,5%);}
+		}
+		.next {
+			background: url(../img/arrow-right-white.png) no-repeat center;
+			width: 28px;
+			height: 100%;
+			cursor: pointer;
+			&:hover {	background-color: darken($gray,5%);}
+		}
+}
